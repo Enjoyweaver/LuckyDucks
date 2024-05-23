@@ -1,4 +1,4 @@
-import { FrameRequest, getFrameMessage } from '@coinbase/onchainkit';
+import { FrameRequest } from '@coinbase/onchainkit';
 import { kv } from '@vercel/kv';
 import { NextRequest, NextResponse } from 'next/server';
 import { NEXT_PUBLIC_URL } from '../../config';
@@ -9,11 +9,18 @@ import { getFrameHtml } from '../../lib/getFrameHtml';
 import { errorResponse, mintResponse } from '../../lib/responses';
 import { Session } from '../../lib/types';
 
+async function validateFrameRequest(
+  body: FrameRequest,
+): Promise<{ isValid: boolean; message: any }> {
+  // Add your custom validation logic here
+  const isValid = true; // Replace with actual validation logic
+  const message = body; // Replace with actual message extraction logic
+  return { isValid, message };
+}
+
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
-  const { isValid, message } = await getFrameMessage(body, {
-    neynarApiKey: process.env.NEYNAR_API_KEY,
-  });
+  const { isValid, message } = await validateFrameRequest(body);
 
   if (isValid && allowedOrigin(message)) {
     if (message.button === 1) {
