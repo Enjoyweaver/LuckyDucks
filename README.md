@@ -1,4 +1,4 @@
-# 🔵 Base Mint with Warps frame 🟣
+# 🔵 Lucky Ducks Frames 🟣
 
 A Farcaster frame that demos "mint with Warps" and "claim with Warpcast active badge" actions. Pay gas costs and mint fees for users with an active badge, let everyone else mint with Warps.
 
@@ -12,4 +12,5 @@ Built using open source tools:
 
 ## Contract deployments
 
+Delete once we deploy ours
 [`0xde9eE56c9dC6018798CE69B30dE0065Ac1514117`](https://basescan.org/address/0xde9eE56c9dC6018798CE69B30dE0065Ac1514117) on Base.
